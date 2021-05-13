@@ -1,0 +1,10 @@
+#!/notes
+
+# add -g to CFLAGS and LDFLAGS
+
+# b main
+# n 17
+
+OR
+
+# b iofopen.c:58
