@@ -1,6 +1,7 @@
 configs for different things. 
 
 probably a simpler way to to do this, but the structure is:
+
 	- <name of software>
 		- <configuration dir for everything but dotfiles>
 		- <configuration dir for dotfiles>
