@@ -54,19 +54,25 @@ esac
 # should be on the output of commands, not on the prompt
 force_color_prompt=yes
 
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
+# just force color_prompt... ive never had an issue with this in the past.
+color_prompt=yes
+#if [ -n "$force_color_prompt" ]; then
+#    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+#	# We have color support; assume it's compliant with Ecma-48
+#	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+#	# a case would tend to support setf rather than setaf.)
+#	color_prompt=yes
+#    else
+#	color_prompt=
+#    fi
+#fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[00;32m\][\[\033[01;31m\]\u@\h\[\033[00;32m\]]\[\033[00;32m\][\[\033[01;34m\]\w\[\033[00m\]\[\033[00;32m\]]\n\[\033[01;32m\]>>\[\033[00m\] '
+	if [ "$HOME" != "/root" ]; then
+    		PS1='${debian_chroot:+($debian_chroot)}\[\033[00;32m\][\[\033[01;31m\]\u@\h\[\033[00;32m\]]\[\033[00;32m\][\[\033[01;34m\]\w\[\033[00m\]\[\033[00;32m\]]\n\[\033[01;32m\]>>\[\033[00m\] '
+	else
+    		PS1='${debian_chroot:+($debian_chroot)}\[\033[00;32m\][\[\033[01;31m\]\u\[\033[01;33m\]⚠\[\033[01;31m\]\h\[\033[00;32m\]]\[\033[00;32m\][\[\033[01;34m\]\w\[\033[00m\]\[\033[00;32m\]]\n\[\033[01;32m\]>>\[\033[00m\] '
+	fi
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -84,7 +90,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+    #alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -117,17 +123,17 @@ if ! shopt -oq posix; then
   fi
 fi
 
-figlet -f $(/usr/bin/ls /usr/share/figlet/ | sort -R | head -n 1) $(whoami) | lolcat
+#figlet -f $(/usr/bin/ls /usr/share/figlet/ | sort -R | head -n 1) $(whoami) | lolcat
 
 # define functions for stuff
 # "fix" cd so it ls-es everytime
-function cd() {
-	if [ ! -z "$1" ]; then
-		builtin cd "$1" && ls -lah --color=auto
-	else
-		builtin cd ~ && ls -lah --color=auto
-	fi
-}
+#function cd() {
+#	if [ ! -z "$1" ]; then
+#		builtin cd "$1" && ls -lah --color=auto
+#	else
+#		builtin cd ~ && ls -lah --color=auto
+#	fi
+#}
 
 # extraction function i stole from DT
 function ex()
@@ -175,28 +181,30 @@ function rset() {
 	fi
 }
 
+# package manager commands
+alias grab="sudo apt-get install -y"
+alias purge="sudo apt purge -y"
+alias remove="sudo apt autoremove -y"
+alias update="sudo apt update -y"
+alias upgrade="sudo apt upgrade -y"
+
 alias ..="cd .."
 alias build="make clean && make && sudo make install"
 alias cp="cp -i"
 alias df="df -h"
-alias grab="sudo apt-get install -y"
 alias irc="ssh irc"
-alias ls="ls -lah --color=auto"
+#alias ls="ls -lah --color=auto"
 alias mv="mv -i"
 alias obs="LIBGL_ALWAYS_SOFTWARE=1 obs &"
 alias p="upower --dump | grep 'percentage\|state' | sort | uniq"
 alias psa="ps aux"
 alias psg="ps aux | grep"
-alias purge="sudo apt purge -y"
-alias remove="sudo apt autoremove -y"
 alias rm="printf 'stop using rm... use tp instead...\n'; false"
 alias search="sudo apt search"
 alias talist="~/.config/talist/src/talist"
 alias te="trash-empty"
 alias tl="trash-list"
 alias tp="trash-put"
-alias update="sudo apt update -y"
-alias upgrade="sudo apt upgrade -y"
 alias when="history | grep"
 
 # shortcuts for git
@@ -208,4 +216,4 @@ alias pull="git pull origin"
 alias push="git push origin master"
 alias set="git remote add origin"
 alias ytdl="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
-source "$HOME/.cargo/env"
+#source "$HOME/.cargo/env"
