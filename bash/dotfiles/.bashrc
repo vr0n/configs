@@ -181,6 +181,12 @@ function rset() {
 	fi
 }
 
+if [ "$(uname)" == "Linux" ]; then
+	alias ls="ls -lah --color=auto"
+elif [ "$(uname)" == "OpenBSD" ]; then
+	alias ls="colorls -lah -G"
+fi
+
 # package manager commands
 alias grab="sudo apt-get install -y"
 alias purge="sudo apt purge -y"
@@ -193,7 +199,7 @@ alias build="make clean && make && sudo make install"
 alias cp="cp -i"
 alias df="df -h"
 alias irc="ssh irc"
-#alias ls="ls -lah --color=auto"
+alias m="emacs -nw"
 alias mv="mv -i"
 alias obs="LIBGL_ALWAYS_SOFTWARE=1 obs &"
 alias p="upower --dump | grep 'percentage\|state' | sort | uniq"
