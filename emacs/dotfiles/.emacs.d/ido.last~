@@ -1,0 +1,53 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/ubuntu/Documents/mh/src/ahab/svc/" . "models/")
+ ("/home/ubuntu/Documents/mh/src/ahab/ah/" . "create/")
+ ("/home/ubuntu/Documents/mh/src/ahab/" . "svc/")
+ ("/home/ubuntu/Documents/mh/src/" . "ahab/")
+ ("/home/ubuntu/Documents/mh/" . "src/")
+ ("/home/ubuntu/Documents/" . "mh/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/ubuntu/Documents/mh/src/ahab/svc/models/"
+ "/home/ubuntu/"
+ "/home/ubuntu/Documents/mh/src/ahab/ah/create/"
+ "/home/ubuntu/Documents/mh/src/ahab/ah/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "result.go"
+ ".emacs"
+ "template_context.go"
+ "create_template.go"
+ "create.go"
+ "completion.go"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/ubuntu/Documents/mh/src/ahab/svc/models/" (24742 34120 354360 577000) "email_request.go" "template.go" "landing_page.go" "result.go" "unsubscribe_page.go" "migrations/" "maillog.go" ".result.go.swp" "target.go" "../" "./" "template_context.go" "geolite2-city.mmdb" "smtp.go" "attachment.go" "campaign.go" "jsonb.go" "models.go")
+
+ ("/home/ubuntu/Documents/mh/src/ahab/svc/" (24710 62635 718283 579000) "api/" "mailer/" "worker/" "util/" "../" "./" "phish/" "models/" "svc.go")
+
+ ("/home/ubuntu/Documents/mh/src/ahab/ah/create/" (24741 25367 602235 560000) "#create.go#" "create_unsubscribe_page.go" "create_campaign.go" "../" "./" "create_smtp.go" "create.go" "create_target.go" "create_template.go" "create_landing_page.go")
+
+ ("/home/ubuntu/" (24741 24274 574354 3000) "Documents/" "configs/" "Videos/" "Desktop/" ".viminfo" "Pictures/" "Downloads/" ".psql_history" ".bash_logout" "bin/" ".emacs.d/" ".vimrc" ".fehbg" ".ssh/" ".k9s/" "Public/" "go/" ".k3d/" ".skaffold/" ".vim/" ".ghidra/" ".docker/" ".mozilla/" ".bashrc" ".rustup/" "herbstluftwm/" ".wget-hsts" "snap/" ".profile" "ghidra_9.2.3/" ".elasticsearch.yml" ".lesshst" ".java/" "Music/" "../" ".local/" "./" ".sudo_as_admin_successful" ".config/" ".cache/" ".cargo/" ".gnupg/" ".kube/" "added_hosts.txt" ".../" "Templates/" "alacritty/" "local.yml" ".bash_history" ".minikube/" ".emacs" ".emacs~" ".xinitrc" ".Xauthority")
+
+ ("/home/ubuntu/Documents/mh/src/ahab/ah/" (24741 9326 878169 789000) "completion.go" "utils/" "delete/" "root.go" "../" "./" "create/" "config/" "get/" "edit/")
+
+ ("/home/ubuntu/Documents/mh/src/ahab/" (24741 9326 882169 740000) ".gitignore" "vendor/" ".golangci.yaml" ".gitlab-ci.yml" "Dockerfile" "test.xyz" "cmd/" "demo/" "sdk/" "go.mod" "tools.go" "build/" ".dockerignore" "Makefile" "../" "./" "go.sum" "ah/" "meta/" "svc/")
+
+ ("/home/ubuntu/Documents/mh/src/" (24741 11097 889711 600000) "fluentd/" "CHANGELOG.md" "k8s-deployment/" ".gitlab-ci.yml" "archive.sh" "steelcastle/" "README.md" "ci/" "../" "./" "deploy/" "grafana/" "ahab/" "skaffold.yaml" ".git/")
+
+ ("/home/ubuntu/Documents/mh/" (24683 49064 175247 361000) "../" "./" "src/")
+
+ ("/home/ubuntu/Documents/" (24741 9795 760551 963000) "mh/" "go-mode.el/" "k9s/" "stone-cold/" "ghidra/" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
