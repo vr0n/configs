@@ -37,5 +37,17 @@ map ,s :s/ /-/ge\|s/./&̶/g<CR>
 map ,u :s/./&̲̲/g\|/̲̲ / /ge<CR>
 set encoding=utf-8
 
-" others
+" others...
+" make a Z command that writes
 map ZW :w!<CR>
+" undofile
+set undodir=~/.vim/undo-dir
+set undofile
+" open files at previously visited line
+if has("autocmd")
+  " When editing a file, always jump to the last cursor position
+  autocmd BufReadPost *
+  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \   exe "normal g'\"" |
+  \ endif
+endif
