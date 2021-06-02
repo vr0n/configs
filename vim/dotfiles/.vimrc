@@ -1,15 +1,23 @@
 " Vundle configs
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+"
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'zah/nim.vim'
+"
+"" all plugins must be added before these lines
+"call vundle#end()
+"filetype plugin indent on
+set tabstop    =2
+set expandtab
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'zah/nim.vim'
-
-" all plugins must be added before these lines
-call vundle#end()
-filetype plugin indent on
+function! HiTabs()
+    syntax match TAB /\t/ containedin=all
+    hi TAB cterm=underline ctermfg=blue
+endfunction
+au BufEnter,BufRead * call HiTabs()
 
 " color
 color pablo
@@ -37,9 +45,9 @@ map ,s :s/ /-/ge\|s/./&̶/g<CR>
 map ,u :s/./&̲̲/g\|/̲̲ / /ge<CR>
 set encoding=utf-8
 
-" others...
-" make a Z command that writes
+" others
 map ZW :w!<CR>
+
 " undofile
 set undodir=~/.vim/undo-dir
 set undofile
