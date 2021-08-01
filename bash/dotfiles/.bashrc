@@ -68,11 +68,7 @@ color_prompt=yes
 #fi
 
 if [ "$color_prompt" = yes ]; then
-	if [ "$HOME" != "/root" ]; then
-    		PS1='${debian_chroot:+($debian_chroot)}\[\033[00;32m\][\[\033[01;31m\]\u\[\033[00;32m\]♻\[\033[01;31m\]\h\[\033[00;32m\]]\[\033[00;32m\][\[\033[01;34m\]\w\[\033[00m\]\[\033[00;32m\]]\n\[\033[01;32m\]>>\[\033[00m\] '
-	else
-    		PS1='${debian_chroot:+($debian_chroot)}\[\033[00;32m\][\[\033[01;31m\]\u\[\033[01;33m\]⚠\[\033[01;31m\]\h\[\033[00;32m\]]\[\033[00;32m\][\[\033[01;34m\]\w\[\033[00m\]\[\033[00;32m\]]\n\[\033[01;32m\]>>\[\033[00m\] '
-	fi
+    		PS1='${debian_chroot:+($debian_chroot)}\[\033[00;32m\][\[\033[01;31m\]\u\[\033[00;32m\]@\[\033[01;31m\]\h\[\033[00;32m\]]\[\033[00;32m\][\[\033[01;34m\]\w\[\033[00m\]\[\033[00;32m\]]\n\[\033[01;32m\]>>\[\033[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -181,18 +177,29 @@ function rset() {
 	fi
 }
 
-if [ "$(uname)" == "Linux" ]; then
-	alias ls="ls -lah --color=auto"
-elif [ "$(uname)" == "OpenBSD" ]; then
+UNAME_OS="$(uname)"
+UNAME_DISTRO="$(uname -v)"
+
+if [ "$UNAME_OS" == "Linux" ]; then
+	alias ls="ls -lAh --color=auto"
+elif [ "$UNAME_OS" == "OpenBSD" ]; then
 	alias ls="colorls -lah -G"
 fi
 
 # package manager commands
-alias grab="sudo apt-get install -y"
-alias purge="sudo apt purge -y"
-alias remove="sudo apt autoremove -y"
-alias update="sudo apt update -y"
-alias upgrade="sudo apt upgrade -y"
+if [[ "$UNAME_DISTRO" == *"Debian"* ]] || [[ "$UNAME_DISTRO" == *"Ubuntu"* ]]; then
+  alias grab="sudo apt-get install -y"
+  alias purge="sudo apt purge -y"
+  alias remove="sudo apt autoremove -y"
+  alias update="sudo apt update -y"
+  alias upgrade="sudo apt upgrade -y"
+elif [[ "$UNAME_DISTRO" == *"Arch"* ]]; then
+  alias grab="sudo pacman -Syu"
+  alias purge="echo 'update this...'"
+  alias remove="echo 'update this...'"
+  alias update="sudo pacman -Syu"
+  alias upgrade="sudo pacman -Syu"
+fi
 
 alias ..="cd .."
 alias build="make clean && make && sudo make install"
@@ -222,4 +229,5 @@ alias pull="git pull origin"
 alias push="git push origin master"
 alias set="git remote add origin"
 alias ytdl="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
+alias rsync="rsync --progress"
 #source "$HOME/.cargo/env"
