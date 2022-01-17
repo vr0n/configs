@@ -8,7 +8,7 @@ case $- in
       *) return;;
 esac
 
-PATH=$PATH:/usr/sbin:/usr/sbin/genymotion:/home/vr0n/icecat:/home/vr0n/ti/ccs1010/ccs/eclipse:/usr/lib/jvm:~/.local/bin:~/.cargo/bin/rustup
+PATH=$PATH:/usr/sbin:/usr/sbin/genymotion:/home/vr0n/icecat:/usr/lib/jvm:~/.local/bin:~/.cargo/bin
 
 #tmux attach if we are not already in tmux
 if [ $TERM != "screen" ]; then
@@ -230,4 +230,5 @@ alias push="git push origin master"
 alias set="git remote add origin"
 alias ytdl="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
 alias rsync="rsync --progress"
+alias rfs="/home/vr0n/rfs/rfs vr0n /home/vr0n/drives/crypton/Documents 192.168.1.6 42642"
 #source "$HOME/.cargo/env"
