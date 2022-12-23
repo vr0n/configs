@@ -8,7 +8,7 @@ case $- in
       *) return;;
 esac
 
-PATH=$PATH:/usr/sbin:/usr/sbin/genymotion:/home/vr0n/icecat:/usr/lib/jvm:~/.local/bin:~/.cargo/bin
+PATH=$PATH:/usr/sbin:/usr/sbin/genymotion:/home/vr0n/icecat:/usr/lib/jvm:~/.local/bin:~/.cargo/bin:/usr/local/go/bin:~/go/bin:~/.config/talist/src:/opt/gradle/bin
 
 #tmux attach if we are not already in tmux
 if [ $TERM != "screen" ]; then
@@ -201,6 +201,7 @@ elif [[ "$UNAME_DISTRO" == *"Arch"* ]]; then
   alias upgrade="sudo pacman -Syu"
 fi
 
+alias l="ls"
 alias ..="cd .."
 alias build="make clean && make && sudo make install"
 alias cp="cp -i"
@@ -228,7 +229,27 @@ alias gall="add && gcom && push"
 alias pull="git pull origin"
 alias push="git push origin master"
 alias set="git remote add origin"
-alias ytdl="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
+alias ytdl="youtube-dl -4 -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
 alias rsync="rsync --progress"
 alias rfs="/home/vr0n/rfs/rfs vr0n /home/vr0n/drives/crypton/Documents 192.168.1.6 42642"
+alias cip="curl ipinfo.io/ip && printf '\n'"
+alias gimp="flatpak run org.gimp.GIMP"
+alias vim="nvim"
+
+# batcat special case
+if type batcat 1>/dev/null 2>/dev/null; then
+  alias cat="batcat"
+fi
 #source "$HOME/.cargo/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Pyenv stuff
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv init --path)"
+fi
