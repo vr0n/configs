@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=herbstluftwm
+Comment=This session logs you into herbstluft
+Exec=exec herbstluftwm
+Type=Application
+DesktopNames=herbstluftwm

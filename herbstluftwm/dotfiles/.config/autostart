@@ -18,11 +18,12 @@ hc keyunbind --all
 # if you have a super key you will be much happier with Mod set to Mod4
 Mod=Mod1    # Use alt as the main modifier
 #Mod=Mod4   # Use the super key as the main modifier
+TERMINAL="alacritty"
 
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
-hc keybind $Mod-Return spawn "/usr/local/bin/st" # use your $TERMINAL with xterm as fallback
+hc keybind $Mod-Return spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
 
 # basic movement in tiling and floating mode
 # focusing clients
@@ -130,8 +131,9 @@ hc set frame_transparent_width 5
 hc set frame_gap 5
 
 hc attr theme.title_height 15
-hc attr theme.title_font 'TT2020StyleE-Regular:pixelsize=12'  # example using Xft
-# hc attr theme.title_font '-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
+hc attr theme.title_font 'DejaVuSans-Regular:pixelsize=16'  # example using Xft
+#hc attr theme.title_font 'TT2020StyleE-Regular:pixelsize=12'  # Something special :)
+#hc attr theme.title_font '-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
 hc attr theme.padding_top 2  # space below the title's baseline (i.e. text depth)
 hc attr theme.active.color '#333333'
 hc attr theme.title_color '#ffffff'

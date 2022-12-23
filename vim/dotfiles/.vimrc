@@ -7,7 +7,7 @@ filetype off
 "Plugin 'VundleVim/Vundle.vim'
 "Plugin 'zah/nim.vim'
 "
-"" all plugins must be added before these lines
+" all plugins must be added before these lines
 "call vundle#end()
 "filetype plugin indent on
 set tabstop    =2
@@ -20,7 +20,7 @@ endfunction
 au BufEnter,BufRead * call HiTabs()
 
 " color
-color pablo
+color default
 
 " remaps
 imap jj <esc>
