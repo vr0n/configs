@@ -9,8 +9,6 @@ hc() {
 hc emit_hook reload
 
 xsetroot -solid '#5A8E3A'
-exec compton &
-#exec feh --bg-scale ~/.config/herbstluftwm/darkflora.webp
 # remove all existing keybindings
 hc keyunbind --all
 
@@ -19,7 +17,20 @@ hc keyunbind --all
 Mod=Mod1    # Use alt as the main modifier
 #Mod=Mod4   # Use the super key as the main modifier
 TERMINAL="alacritty"
+DIR="/home/vr0n/.config/herbstluftwm"
 
+# set transparency
+exec compton &
+# set wallpaper 
+exec feh --bg-scale "${DIR}"/water0.jpg &
+
+# keybindings
+# custom ones
+hc keybind Mod4-l spawn "${DIR}"/slock.sh # Figure out why this isn't working
+hc keybind $Mod-d spawn "${DIR}"/define.sh
+hc keybind $Mod-m spawn "${DIR}"/kalc.sh
+
+# shipped ones
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
