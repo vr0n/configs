@@ -1,5 +1,10 @@
+" plugzzz
+call plug#begin()
+  Plug 'neaclide/coc.nvim', {'branch': 'release'}
+call plug#end()
+
 " undofile
-set undodir=~/.vim/undo-dir
+set undodir=~/.config/nvim/undo-dir
 set undofile
 
 " open files at last line saw
