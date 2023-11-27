@@ -18,6 +18,7 @@ call plug#begin()
   Plug 'williamboman/mason.nvim'
   Plug 'savq/melange-nvim'
   Plug 'williamboman/mason-lspconfig.nvim'
+  Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 " undofile
